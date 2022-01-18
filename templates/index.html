@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    <title>Django File</title>
+  </head>
+  <body>
+    <h1>This page will show data extracted from Database(Models)</h1>
+
+    <h3>These are all the people inside our database</h3>
+    <ul>
+      {% for p in people %}
+      <li>{{p}}</li>
+      {% if p.age >= 21 %}
+      <h1>You can vote and drink</h1>
+      {% elif p.age >= 18 %}
+      <h1>You can Vote, but cannot drink</h1>
+      {% else %}
+      <h1>You cannot vote and drink</h1>
+      {% endif %} {% endfor %}
+    </ul>
+
+    <script src={% static 'main.js' %}></script>
+  </body>
+</html>

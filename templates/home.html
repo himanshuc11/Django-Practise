@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block body %}
+<h1>This is home page</h1>
+
+{% if user.is_authenticated %}
+<h1>This is your username: {{user.username}}</h1>
+{% endif %}
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock body %}
